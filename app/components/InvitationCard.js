@@ -1,3 +1,4 @@
+// app/components/InvitationCard.js
 import Image from "next/image";
 
 const InvitationCard = ({
@@ -43,24 +44,19 @@ const InvitationCard = ({
         <strong>End Time:</strong> {endTime}
       </p>
       <div className="my-4">
-        <Image
-          src="/images/venue.webp"
-          alt="Venue"
-          width={800}
-          height={400}
-          className="w-full h-40 object-cover rounded-lg"
-        />
+        <div className="w-full h-60 rounded-lg overflow-hidden mb-4">
+          <iframe
+            src={mapLink}
+            width="100%"
+            height="100%"
+            style={{ border: "0", borderRadius: "8px" }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
         <p className="mt-2">
           <strong>Venue:</strong> {venue}
         </p>
-        <a
-          href={mapLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-secondary text-white px-4 py-2 rounded mt-4 hover:bg-primary transition"
-        >
-          View on Google Maps
-        </a>
       </div>
     </div>
   </div>

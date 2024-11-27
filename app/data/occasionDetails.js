@@ -1,27 +1,26 @@
+// app/data/occasionDetails.js
+
 export const occasionDetails = [
   {
     id: "1",
-    templateName: "template1",
-    occasionName: "Wedding Ceremony",
-    bride: "Jane Smith",
-    groom: "John Doe",
-    date: "December 14, 2024",
+    occasionName: "Grand Wedding Celebration",
+    bride: "Alice",
+    groom: "Bob",
+    host: "John Doe",
+    date: "2024-12-12",
     startTime: "5:00 PM",
-    endTime: "9:00 PM",
-    venue: "ABC Wedding Hall, Mumbai",
-    mapLink: "https://www.google.com/maps?q=ABC+Wedding+Hall,+Mumbai",
-    invitees: ["John", "Emily", "Michael", "Sarah", "Anna"],
+    endTime: "10:00 PM",
+    venue: "The Grand Venue, Downtown City",
+    mapLink: "https://maps.app.goo.gl/5GubuDqJFfUZ3ygi9",
+    invitees: ["maaz", "sara", "john"],
+    advertisement: {
+      companyName: "AP Furniture",
+      image: "/images/advertisement.webp",
+      title: "Premium Appliance Trolleys",
+      description:
+        "Durable and stylish trolleys for your washing machine and refrigerator.",
+      link: "https://father-business.com",
+    },
   },
-  {
-    id: "2",
-    templateName: "template2",
-    occasionName: "Birthday Party",
-    host: "Alice Johnson",
-    date: "January 20, 2025",
-    startTime: "6:00 PM",
-    endTime: "11:00 PM",
-    venue: "Sunset Lounge, Pune",
-    mapLink: "https://www.google.com/maps?q=Sunset+Lounge,+Pune",
-    invitees: ["David", "Sophia", "Lucas", "Olivia"],
-  },
+  // Add more occasions as needed
 ];
