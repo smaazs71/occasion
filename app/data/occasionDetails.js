@@ -1,0 +1,27 @@
+export const occasionDetails = [
+  {
+    id: "1",
+    templateName: "template1",
+    occasionName: "Wedding Ceremony",
+    bride: "Jane Smith",
+    groom: "John Doe",
+    date: "December 14, 2024",
+    startTime: "5:00 PM",
+    endTime: "9:00 PM",
+    venue: "ABC Wedding Hall, Mumbai",
+    mapLink: "https://www.google.com/maps?q=ABC+Wedding+Hall,+Mumbai",
+    invitees: ["John", "Emily", "Michael", "Sarah", "Anna"],
+  },
+  {
+    id: "2",
+    templateName: "template2",
+    occasionName: "Birthday Party",
+    host: "Alice Johnson",
+    date: "January 20, 2025",
+    startTime: "6:00 PM",
+    endTime: "11:00 PM",
+    venue: "Sunset Lounge, Pune",
+    mapLink: "https://www.google.com/maps?q=Sunset+Lounge,+Pune",
+    invitees: ["David", "Sophia", "Lucas", "Olivia"],
+  },
+];
