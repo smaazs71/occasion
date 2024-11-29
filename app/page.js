@@ -1,4 +1,3 @@
-// app/page.js
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -25,7 +24,7 @@ export default function Page() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto p-6 space-y-8">
+    <main className="max-w-5xl mx-auto p-6 space-y-8 lg:space-y-0 lg:grid lg:grid-cols-4 gap-6">
       <InvitationCard inviteeName={inviteeName} {...occasion} />
       <Advertisement {...occasion.advertisement} />
     </main>
