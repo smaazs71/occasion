@@ -1,27 +1,36 @@
 // app/components/Advertisement.js
-import Image from 'next/image';
-
-const Advertisement = ({ companyName, title, description, image, link }) => (
-  <div className="bg-gray-100 p-2 rounded-lg shadow-sm mt-4">
-    <Image
-      src={image}
-      alt={title}
-      width={250}
-      height={125}
-      className="w-full h-16 object-cover rounded"
-    />
-    <h3 className="text-sm font-semibold mt-2">{companyName}</h3>
-    <p className="text-sm font-semibold">{title}</p>
-    <p className="text-gray-600 mt-1 text-xs">{description}</p>
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block bg-primary text-white px-2 py-1 rounded mt-2 text-xs hover:bg-secondary transition"
-    >
-      Learn More
-    </a>
-  </div>
-);
-
-export default Advertisement;
+export default function Advertisement({
+    companyName,
+    image,
+    title,
+    description,
+    link,
+  }) {
+    return (
+      <footer className="bg-[#f4f4f4] p-6 rounded-lg shadow-lg mt-6">
+        <h2 className="text-2xl font-serif text-center mb-4 text-[#333]">
+          Advertisement
+        </h2>
+        <div className="flex flex-col items-center">
+          <img
+            src={image}
+            alt={`${companyName} Advertisement`}
+            className="rounded-lg shadow-md mb-4 w-full sm:w-1/2"
+          />
+          <p className="text-lg text-[#555] mb-2">
+            <strong>{title}</strong>
+          </p>
+          <p className="text-md text-[#777] text-center mb-4">{description}</p>
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-[#333] text-white rounded shadow-md hover:bg-[#444]"
+          >
+            Visit Us
+          </a>
+        </div>
+      </footer>
+    );
+  }
+  
