@@ -5,8 +5,9 @@ import { occasionDetails } from "./data/occasionDetails";
 import InvitationCard from "./components/InvitationCard";
 import Advertisement from "./components/Advertisement";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Page() {
+function InvitationContent() {
   const searchParams = useSearchParams();
   const occasionId = searchParams.get("id");
   const inviteeName = searchParams.get("name") || "Guest";
@@ -28,5 +29,13 @@ export default function Page() {
       <InvitationCard inviteeName={inviteeName} {...occasion} />
       <Advertisement {...occasion.advertisement} />
     </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <InvitationContent />
+    </Suspense>
   );
 }

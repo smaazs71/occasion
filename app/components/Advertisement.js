@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Advertisement({
@@ -13,9 +14,11 @@ export default function Advertisement({
         Advertisement
       </h2>
       <div className="flex flex-col items-center">
-        <img
+        <Image
           src={image}
           alt={`${companyName} Advertisement`}
+          width={800} // Set width based on your requirements
+          height={600} // Set height based on your requirements
           className="rounded-lg shadow-md mb-4 w-full sm:w-3/4 lg:w-full"
         />
         <p className="text-md text-[#e2e8f0] mb-2">
