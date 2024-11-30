@@ -16,13 +16,13 @@ export default function Advertisement({
         className="text-black hover:text-[#3c3b37] hover:opacity-80"
       > */}
       <div className="flex flex-col gap-4 items-center">
-        {companyName && <h1 className="font-bold">{companyName}</h1>}
+        {/* {companyName && <h1 className="font-bold">{companyName}</h1>} */}
         <Image
           src={image}
           alt={`${companyName} Advertisement`}
           width={400} // Set width based on your requirements
           height={200} // Set height based on your requirements
-          className="rounded-lg max-h-[300px] max-w-[400px] min-h-[300px]"
+          className="rounded-lg max-h-[250px] max-w-full md:max-w-[400px] min-h-[250px]"
         />
         <div className="grid gap-2">
           <p className="text-2xl font-semibold ">

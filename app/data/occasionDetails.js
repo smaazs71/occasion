@@ -26,20 +26,20 @@ export const occasionDetails = [
     invitees: ["maaz", "sara", "john"],
     advertisements: [
       {
-        companyName: "AP Furniture",
-        image: "/images/Ultimate_32_Wheels.webp",
-        title: "Shop Our Premium Trolleys",
-        description:
-          "Elevate your appliances with our durable and high-quality washing machine and fridge trolleys.",
-        link: "https://theap.in/",
-      },
-      {
         // companyName: "AP Furniture",
         image: "/images/AP-furniture-logo-wobg.webp",
         title: "Explore Our Work",
         description:
           "We specialize in designing and manufacturing high-quality washing machine and fridge trolleys.",
         link: "https://theap.vercel.app/",
+      },
+      {
+        companyName: "AP Furniture",
+        image: "/images/Ultimate_32_Wheels.webp",
+        title: "Shop Our Premium Trolleys",
+        description:
+          "Elevate your appliances with our durable and high-quality washing machine and fridge trolleys.",
+        link: "https://theap.in/",
       },
     ],
   },
