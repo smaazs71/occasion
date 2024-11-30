@@ -29,8 +29,10 @@ function InvitationContent() {
     <main className="w-full">
       <InvitationCard inviteeName={inviteeName} {...occasion} />
 
-      <div className="mt-8">
-        <Advertisement {...occasion.advertisement} />
+      <div className="mt-8 flex flex-col md:flex-row justify-center align-middle">
+        {occasion.advertisements.map((advertisement, index) => (
+          <Advertisement key={index} {...advertisement} />
+        ))}
       </div>
     </main>
   );

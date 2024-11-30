@@ -24,13 +24,23 @@ export const occasionDetails = [
       "Saint Mary College hall, Kalina Church, Kalina Kurla road near Kunchi Kuruvi Nagar, Santacruz East Mumbai-29",
     mapLink: "https://maps.app.goo.gl/xtn2H8z6YvKDqgLcA",
     invitees: ["maaz", "sara", "john"],
-    advertisement: {
-      companyName: "AP Furniture",
-      image: "/images/advertisement.webp",
-      title: "Premium Appliance Trolleys",
-      description:
-        "Durable and stylish trolleys for your washing machine and refrigerator.",
-      link: "https://theap.in",
-    },
+    advertisements: [
+      {
+        companyName: "AP Furniture",
+        image: "/images/Ultimate_32_Wheels.webp",
+        title: "Shop Our Premium Trolleys",
+        description:
+          "Elevate your appliances with our durable and high-quality washing machine and fridge trolleys.",
+        link: "https://theap.in/",
+      },
+      {
+        // companyName: "AP Furniture",
+        image: "/images/AP-furniture-logo-wobg.webp",
+        title: "Explore Our Work",
+        description:
+          "We specialize in designing and manufacturing high-quality washing machine and fridge trolleys.",
+        link: "https://theap.vercel.app/",
+      },
+    ],
   },
 ];

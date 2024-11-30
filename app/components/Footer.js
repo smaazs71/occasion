@@ -16,10 +16,11 @@ const Footer = () => {
           <p className="text-center text-xl">
             Need a personalized invitation or a professional website?{" "}
             <a
-              href="https://your-portfolio-link.com"
+              href="https://m-maaz.vercel.app/"
+              target="blank"
               className="text-gold-500 hover:underline"
             >
-              Contact me!
+              Check out my portfolio!
             </a>
           </p>
 
