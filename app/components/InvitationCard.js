@@ -26,9 +26,9 @@ export default function InvitationCard({
             </h1>
           )}
           {invitationText && (
-            <p className="text-lg sm:text-xl lg:text-2xl font-lora grid gap-2">
+            <div className="text-lg sm:text-xl lg:text-2xl font-lora grid gap-2">
               {invitationText(inviteeName)}
-            </p>
+            </div>
           )}
           <div className="grid gap-2">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-medium">
