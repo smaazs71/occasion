@@ -1,7 +1,7 @@
 export const occasionDetails = [
   {
     id: "1",
-    // occasionName: "Walima - A Wedding Reception",
+    occasionName: "Walima - A Wedding Reception",
     groom: "Mohamed Maaz Shaikh",
     bride: "Daughter of Ali Kadar Khan",
     host: ["Mr. Khan", "Mrs. Khan", "Ahmed's Parents"],
