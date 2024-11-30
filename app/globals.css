@@ -2,33 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
 
+/* Global Styles */
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #1e293b; /* Main Dark Background */
-  color: #e2e8f0; /* Text Color */
+  font-family: "Lora", serif; /* Fallback to serif */
+  background-color: #f6f4ec; /* Light Gray Background */
+  color: #1e293b; /* Dark Text Color */
+  margin: 0;
+  padding: 0;
 }
 
+/* Headings Styles */
 h1,
 h2 {
-  font-family: "Poppins", serif;
+  font-family: "Playfair Display", serif; /* Use Playfair Display for Headings */
+  margin: 0;
 }
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Specific Adjustments */
+h1 {
+  font-size: 2.5rem; /* Larger Heading */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h2 {
+  font-size: 2rem; /* Slightly Smaller Heading */
+}
+
+/* Additional Utility Classes for Text */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #94a3b8; /* Light Muted Text */
+}
+
+/* Section and Card Styling */
+section {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8); /* Translucent White */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+}
+
+.card {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  color: #9333ea;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #10b981;
 }

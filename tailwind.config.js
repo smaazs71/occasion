@@ -18,8 +18,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ["Lora", "serif"],
-        sans: ["Poppins", "sans-serif"],
+        lora: ["Lora", "serif"],
+        playfair: ["Playfair Display", "serif"],
+        // serif: ["Lora", "serif"],
+        // sans: ["Poppins", "sans-serif"],
       },
     },
   },

@@ -26,9 +26,12 @@ function InvitationContent() {
   }
 
   return (
-    <main className="max-w-5xl mx-auto p-6 space-y-8 lg:space-y-0 lg:grid lg:grid-cols-4 gap-6">
+    <main className="w-full">
       <InvitationCard inviteeName={inviteeName} {...occasion} />
-      <Advertisement {...occasion.advertisement} />
+
+      <div className="mt-8">
+        <Advertisement {...occasion.advertisement} />
+      </div>
     </main>
   );
 }
@@ -43,7 +46,7 @@ export default function Page() {
           property="og:description"
           content="Join us for the joyous union of [Bride's Name] & [Groom's Name]. Your presence will make our day extra special!"
         />
-        <meta property="og:image" content="public\images\ogimage.webp" />
+        <meta property="og:image" content="public/images/ogimage.webp" />
         <meta
           property="og:url"
           content="https://occasion.vercel.app/?id=1&name=maaz"

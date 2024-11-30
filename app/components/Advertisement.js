@@ -9,32 +9,38 @@ export default function Advertisement({
   link,
 }) {
   return (
-    <footer className="bg-[#1e293b] p-4 rounded-lg shadow-md mt-6 lg:mt-0 lg:col-span-1">
-      <h2 className="text-xl font-serif text-center mb-4 text-[#9333ea]">
-        Advertisement
-      </h2>
-      <div className="flex flex-col items-center">
+    <div className="p-6">
+      {/* <a
+        href={link}
+        target="_blank"
+        className="text-black hover:text-[#3c3b37] hover:opacity-80"
+      > */}
+      <div className="flex flex-col gap-4 items-center">
+        <h1 className="font-bold">{companyName}</h1>
         <Image
           src={image}
           alt={`${companyName} Advertisement`}
-          width={800} // Set width based on your requirements
-          height={600} // Set height based on your requirements
-          className="rounded-lg shadow-md mb-4 w-full sm:w-3/4 lg:w-full"
+          width={400} // Set width based on your requirements
+          height={200} // Set height based on your requirements
+          className="rounded-lg shadow-md max-h-[300px] max-w-[400px]"
         />
-        <p className="text-md text-[#e2e8f0] mb-2">
-          <strong>{title}</strong>
-        </p>
-        <p className="text-sm text-[#94a3b8] text-center mb-4">{description}</p>
-        <Link href={link} legacyBehavior>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-1 bg-[#10b981] text-white rounded shadow-md text-sm hover:bg-[#059669]"
-          >
-            Visit Us
-          </a>
-        </Link>
+        <div className="grid gap-2">
+          <p className="text-2xl font-semibold ">
+            <strong>{title}</strong>
+          </p>
+          <p className="text-xl font-normal text-center">{description}</p>
+          <div className="flex justify-center align-middle">
+            <a
+              href={link}
+              target="_blank"
+              className="px-3 py-1 bg-[#80B52C] text-white rounded shadow-md text-sm hover:bg-[#059669]"
+            >
+              Visit Us
+            </a>
+          </div>
+        </div>
       </div>
-    </footer>
+      {/* </a> */}
+    </div>
   );
 }
