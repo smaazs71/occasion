@@ -15,7 +15,7 @@ export default function InvitationCard({
   mapLink,
 }) {
   return (
-    <div className="relative flex items-center justify-center py-1 lg:py-0 text-center px-4 sm:px-6 lg:px-8">
+    <div className="relative flex items-center justify-center min-h-screen py-1 lg:py-0 text-center px-4 sm:px-6 lg:px-8">
       {/* Content Wrapper */}
       <div className="relative z-10 px-4 py-2 md:py-4 rounded-md max-w-4xl mx-auto">
         {/* Occasion and Name Section */}
