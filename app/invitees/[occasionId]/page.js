@@ -72,6 +72,8 @@ export default function Occasion({ params }) {
   const [newInvitee, setNewInvitee] = useState("");
   const [isAdding, setIsAdding] = useState(false);
   const inputRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredInvitees, setFilteredInvitees] = useState([]);
 
   useEffect(() => {
     if (params) {
@@ -98,6 +100,13 @@ export default function Occasion({ params }) {
       inputRef.current.focus();
     }
   }, [isAdding]);
+
+  useEffect(() => {
+    const results = invitees.filter((invitee) =>
+      invitee.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredInvitees(results);
+  }, [searchTerm, invitees]);
 
   const handleAddInvitee = async () => {
     if (!newInvitee.trim()) return alert("Please enter an invitee name.");
@@ -236,60 +245,74 @@ export default function Occasion({ params }) {
         </div>
       )}
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {invitees.map((invitee) => {
-          const url = generateInviteeUrl(invitee);
-          return (
-            <li
-              key={invitee}
-              className="p-4 bg-white rounded-lg shadow-md border hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-semibold text-lg">{invitee}</h3>
-              <p className="text-sm text-gray-600 mb-4 truncate">URL: {url}</p>
-              <div className="flex space-x-2">
-                <button
-                  onClick={() => handleShare(url, invitee)}
-                  className="px-3 py-1 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-700"
-                >
-                  Share
-                </button>
+      <input
+        type="text"
+        placeholder="Search invitees..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="px-4 py-2 border rounded-lg w-full md:w-1/2 mb-4"
+      />
 
-                {/* <button
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {filteredInvitees
+          .slice()
+          .reverse()
+          .map((invitee) => {
+            const url = generateInviteeUrl(invitee);
+            return (
+              <li
+                key={invitee}
+                className="p-4 bg-white rounded-lg shadow-md border hover:shadow-lg transition-shadow"
+              >
+                <h3 className="capitalize font-semibold text-lg">{invitee}</h3>
+                <p className="text-sm text-gray-600 mb-4 truncate">
+                  URL: {url}
+                </p>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handleShare(url, invitee)}
+                    className="px-3 py-1 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-700"
+                  >
+                    Share
+                  </button>
+
+                  {/* <button
                   onClick={() => handleCopy(url)}
                   className="px-3 py-1 bg-gray-500 text-white rounded-lg text-sm hover:bg-gray-700"
                 >
                   Copy URL
                 </button> */}
-                <button
-                  onClick={() => window.open(url, "_blank")}
-                  className="px-3 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-700"
-                >
-                  Visit
-                </button>
-                <button
-                  onClick={() => handleDelete(invitee)}
-                  className="px-3 py-1 bg-red-500 text-white rounded-lg text-sm hover:bg-red-700"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() => {
-                    const newInviteeName = prompt(
-                      "Enter a new name for the invitee:",
-                      invitee
-                    );
-                    if (newInviteeName) {
-                      handleUpdate(invitee, newInviteeName);
-                    }
-                  }}
-                  className="px-3 py-1 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-700"
-                >
-                  Update
-                </button>
-              </div>
-            </li>
-          );
-        })}
+                  <button
+                    onClick={() => window.open(url, "_blank")}
+                    className="px-3 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-700"
+                  >
+                    Visit
+                  </button>
+                  <button
+                    onClick={() => {
+                      const newInviteeName = prompt(
+                        "Enter a new name for the invitee:",
+                        invitee
+                      );
+                      if (newInviteeName) {
+                        handleUpdate(invitee, newInviteeName);
+                      }
+                    }}
+                    className="px-3 py-1 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-700"
+                  >
+                    Update
+                  </button>
+
+                  <button
+                    onClick={() => handleDelete(invitee)}
+                    className="px-3 py-1 bg-red-500 text-white rounded-lg text-sm hover:bg-red-700"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
