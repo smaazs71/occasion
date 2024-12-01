@@ -18,8 +18,8 @@ export const occasionDetails = [
       );
     },
     date: "2025-01-04",
-    startTime: "7:00",
-    endTime: "10:00 PM",
+    startTime: "8:00",
+    endTime: "11:00 PM",
     venue:
       "Saint Mary College hall, Kalina Church, Kalina Kurla road near Kunchi Kuruvi Nagar, Santacruz East Mumbai-29",
     mapLink: "https://maps.app.goo.gl/xtn2H8z6YvKDqgLcA",
