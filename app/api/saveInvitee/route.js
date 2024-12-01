@@ -1,57 +1,42 @@
-import fs from "fs";
-import path from "path";
+import { MongoClient } from "mongodb";
 
-// Importing the occasion details constant directly from the file
-import { occasionDetails } from "../../data/occasionDetails"; // Adjust path if needed
-
-// Define the file path for invitees
-const inviteePath = path.join(process.cwd(), "app", "data", "invitee.json");
+const client = new MongoClient("mongodb://localhost:27017"); //process.env.MONGODB_URI);
+const dbName = "occasions"; // Database name
 
 export async function POST(req) {
   try {
-    // Parse the incoming request body
     const { selectedOccasion, inviteeName } = await req.json();
 
-    // Find the selected occasion from the imported occasionDetails
-    const occasion = occasionDetails.find(
-      (occasion) => occasion.id === selectedOccasion
-    );
+    // Connect to MongoDB
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection("invitees"); // Collection to store invitees
 
-    if (!occasion) {
-      return new Response(JSON.stringify({ message: "Occasion not found" }), {
-        status: 404,
-      });
-    }
+    // Check if the occasion already has invitees
+    const occasionInvitees = await collection.findOne({
+      occasionId: selectedOccasion,
+    });
 
-    console.log(inviteePath);
-
-    // Read the current invitee data from the file
-    const inviteeFile = fs.readFileSync(inviteePath, "utf-8");
-    const invitees = JSON.parse(inviteeFile);
-
-    // Find the invitee data for the selected occasion
-    const occasionInvitees = invitees.find(
-      (invitee) => invitee.id === selectedOccasion
-    );
-
-    // If no invitees for the occasion, create an entry
-    if (!occasionInvitees) {
-      invitees.push({ id: selectedOccasion, invitees: [inviteeName] });
-    } else {
-      // Check if the invitee is already added
+    if (occasionInvitees) {
+      // If invitee already exists, return an error
       if (occasionInvitees.invitees.includes(inviteeName)) {
         return new Response(
           JSON.stringify({ message: "Invitee already added" }),
           { status: 400 }
         );
       }
-
-      // Add the new invitee to the list
-      occasionInvitees.invitees.push(inviteeName);
+      // Add new invitee
+      await collection.updateOne(
+        { occasionId: selectedOccasion },
+        { $push: { invitees: inviteeName } }
+      );
+    } else {
+      // If occasion is new, create it
+      await collection.insertOne({
+        occasionId: selectedOccasion,
+        invitees: [inviteeName],
+      });
     }
-
-    // Save the updated invitee data back to the file
-    fs.writeFileSync(inviteePath, JSON.stringify(invitees, null, 2));
 
     return new Response(
       JSON.stringify({ message: "Invitee added successfully" }),
@@ -62,5 +47,8 @@ export async function POST(req) {
     return new Response(JSON.stringify({ message: "Internal Server Error" }), {
       status: 500,
     });
+  } finally {
+    // Close the MongoDB connection
+    await client.close();
   }
 }

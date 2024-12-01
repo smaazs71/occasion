@@ -15,16 +15,16 @@ export default function InvitationCard({
   mapLink,
 }) {
   return (
-    <div className="relative flex items-center justify-center py-6 lg:py-0 text-center px-4 sm:px-6 lg:px-8">
+    <div className="relative flex items-center justify-center py-1 lg:py-0 text-center px-4 sm:px-6 lg:px-8">
       {/* Content Wrapper */}
-      <div className="relative z-10 p-4 rounded-md max-w-4xl mx-auto">
+      <div className="relative z-10 px-4 py-1 md:py-4 rounded-md max-w-4xl mx-auto">
         {/* Occasion and Name Section */}
         <div className="grid gap-6 sm:gap-4 lg:gap-2">
-          {occasionName && (
+          {/* {occasionName && (
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif mb-4">
               {occasionName}
             </h1>
-          )}
+          )} */}
           {invitationText && (
             <div className="text-lg sm:text-xl lg:text-2xl font-lora grid gap-2">
               {invitationText(inviteeName)}
@@ -79,7 +79,7 @@ export default function InvitationCard({
               alt=""
               height={150}
               width={150}
-              className="sm:h-56 sm:w-48 lg:h-20 lg:w-52"
+              className="h-24 sm:w-48 sm:h-20 lg:w-52"
             />
           </div>
         </div>
