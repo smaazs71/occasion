@@ -156,6 +156,27 @@ export default function Occasion({ params }) {
     }
   };
 
+  const handleShare = async (url, inviteeName) => {
+    console.log(url);
+    console.log(generateInviteeUrl(inviteeName));
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Invitation for ${inviteeName}`,
+          text: `You're invited! Check out the details here:`,
+          url: url,
+        });
+        alert("Invitation shared successfully!");
+      } catch (err) {
+        console.error("Error sharing:", err);
+        alert("Failed to share the invitation.");
+      }
+    } else {
+      alert("Sharing is not supported on this device.");
+    }
+  };
+
   if (loading)
     return (
       <div className="flex justify-center items-center h-screen text-gray-600">
@@ -227,11 +248,18 @@ export default function Occasion({ params }) {
               <p className="text-sm text-gray-600 mb-4 truncate">URL: {url}</p>
               <div className="flex space-x-2">
                 <button
+                  onClick={() => handleShare(url, invitee)}
+                  className="px-3 py-1 bg-purple-500 text-white rounded-lg text-sm hover:bg-purple-700"
+                >
+                  Share
+                </button>
+
+                {/* <button
                   onClick={() => handleCopy(url)}
                   className="px-3 py-1 bg-gray-500 text-white rounded-lg text-sm hover:bg-gray-700"
                 >
                   Copy URL
-                </button>
+                </button> */}
                 <button
                   onClick={() => window.open(url, "_blank")}
                   className="px-3 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-700"
