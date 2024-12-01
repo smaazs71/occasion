@@ -25,7 +25,8 @@ async function validateInvitee(occasionId, inviteeName) {
   }
   const { invitees } = await res.json();
   return invitees.some(
-    (invitee) => invitee.toLowerCase() === inviteeName.toLowerCase()
+    (invitee) =>
+      invitee.toLowerCase() === sanitizeName(inviteeName).toLowerCase()
   );
 }
 
@@ -41,6 +42,8 @@ function InvitationContent({ occasion, inviteeName }) {
     </main>
   );
 }
+
+const sanitizeName = (name) => decodeURIComponent(name).trim();
 
 export default function Page() {
   const params = useParams(); // Use this to fetch dynamic params
@@ -117,7 +120,10 @@ export default function Page() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Special Occasion Invitation" />
       </Head>
-      <InvitationContent occasion={occasion} inviteeName={params.inviteeName} />
+      <InvitationContent
+        occasion={occasion}
+        inviteeName={sanitizeName(params.inviteeName)}
+      />
     </>
   );
 }

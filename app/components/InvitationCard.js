@@ -26,18 +26,18 @@ export default function InvitationCard({
             </h1>
           )} */}
           {invitationText && (
-            <div className="text-base sm:text-lg lg:text-2xl font-lora grid gap-2">
+            <div className="text-base sm:text-lg lg:text-2xl font-lora grid gap-1">
               {invitationText(inviteeName)}
             </div>
           )}
           <div className="grid gap-2">
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-playfair font-medium">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-medium">
               {groom}
             </h1>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-playfair font-medium">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-medium">
               &
             </h1>
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-playfair font-medium">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-medium">
               {bride}
             </h1>
           </div>

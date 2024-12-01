@@ -10,7 +10,7 @@ export const occasionDetails = [
         <>
           With the blessings of Almighty Allah, Mr. Maqbool Ahmed and family
           warmly invite
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl italic underline capitalize text-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold italic underline capitalize text-center">
             {invitee}
           </h1>
           to the Walima Ceremony celebrating the union of
