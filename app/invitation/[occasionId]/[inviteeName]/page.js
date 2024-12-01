@@ -91,8 +91,6 @@ export default function Page() {
   }
 
   if (!occasion) {
-    // router.push("/not-found");
-    // return;
     redirect("/not-found");
   }
 
